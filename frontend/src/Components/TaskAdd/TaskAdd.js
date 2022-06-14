@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios";
 import Styles from './TaskAdd.module.css'
 
-const TaskAdd = () => {
+const TaskAdd = ({getAllTask}) => {
 
   const [task, setTask] = useState('');
 
@@ -10,6 +10,7 @@ const TaskAdd = () => {
     try{
         const {data} = await axios.post("/api/v1/addtask",{task:task});
         console.log(data)
+        getAllTask()
     }
     catch(error){
         alert("Opps! There is an Error")

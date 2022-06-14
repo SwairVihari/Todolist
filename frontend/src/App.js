@@ -33,16 +33,17 @@ function App() {
     }
 
     const deleteItem= async(id)=>{
-      console.log(id)
-      alert("deleted successfully please refresh")
-      await axios.post("/api/v1/delete",{_id:id})
+      // alert("deleted successfully please refresh")
+      await axios.post("/api/v1/delete",{_id:id});
+      getAllTaks(); 
       
     }
 
 
+
   return (
     <>
-<TaskAdd/>
+<TaskAdd getAllTask={getAllTaks}/>
 <List alltask={alltask} completedtask={completedtask} notcompletedtask={notcompletedtask} deleteItem={deleteItem}/>
 
 
